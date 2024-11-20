@@ -111,7 +111,7 @@ function Quiz() {
         }}>
           <span style={{ marginRight: '10px' }}>
             10
-            </span> {/* СКОЛЬКО СЕКУНД ОСТАЛОСЬ??? */}
+            </span> {/* СКОЛЬКО СЕКУНД ОСТАЛОСЬ ??? */}
           <span>СЕК</span>
         </div>
       </div>
