@@ -1,0 +1,284 @@
+html, body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow-x: hidden;
+    
+    background-color: white;
+}
+
+
+
+/*LOGIN, REGISTER PAGES*/
+
+
+.log-left-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+.log-form-container{
+    position: absolute;
+
+    /* border: 2px solid red; */
+
+    width: 700px;
+    height: 100px;
+
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 60px;
+}
+
+.log-form-elements{
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: left;
+    justify-content: center;
+
+}
+
+.text-14-black{
+    font-size: 18px;
+
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 700;
+
+    padding: 10px 0px;
+}
+
+.log-input{
+    width: 400px;
+    height: 50px;
+
+    border-radius: 15px;
+
+    border: 3px solid #DEEAF4;
+
+    font-size: 18px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+    box-sizing: border-box;
+
+    padding-left: 20px;
+
+}
+
+.password-container {
+    position: relative;
+    width: 400px;
+}
+
+.password-container .log-input {
+
+    padding-right: 50px;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+
+    display: flex;
+    align-items: center;
+
+    
+
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    cursor: pointer;
+
+    /* padding: 10px; */
+
+}
+
+
+
+
+
+.log-submit {
+    width: 400px;
+
+    height: 50px;
+    border-radius: 15px;
+    background-color: #3786F2; 
+    color: #FFFFFF; 
+    font-size: 18px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.error-message {
+
+    color: red;
+    font-size: 14px; 
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+
+
+
+
+
+.log-right-container{
+    /* border: 2px solid red; */
+    
+    left:50%;
+
+    position: absolute;
+    width: 45vw;
+    height: 95vh;
+    padding: 2.5vh 2.5vw;
+}
+
+.log-right-container img{
+    border-radius: 50px;
+
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+
+
+
+/*QUIZ GAME PAGES*/
+
+.quiz-page{
+    font-family: Gilroy, sans-serif;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.quiz-and-question{
+    padding-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-container {
+    display: grid;
+    grid-template-columns: repeat(2, 700px);
+    grid-template-rows: repeat(2, 100px);
+    gap: 20px;
+}
+
+.quiz-box {
+    width: 700px;
+    height: 100px;
+    background-color: #ffffff;
+    border: 3px solid #ccc;
+
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.quiz-box .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: #000;
+    margin-right: 25px;
+}
+
+.quiz-box span {
+    font-size: 30px;
+    color: #000;
+}
+
+.quiz-box.active {
+    background-color: #3786F2;
+    border: 3px solid #6FACFF;
+    color: #fff;
+}
+
+.quiz-box.active .circle {
+    background-color: #fff;
+    color: #3786F2;
+}
+
+.question{
+    font-family: Gilroy, sans-serif;
+    font-weight: 600;
+    font-size: 50px; 
+    display: flex;
+    padding: 50px;
+
+    max-width: 60%;
+}
+
+.question-image{
+    width: 350px;
+}
+
+
+
+
+
+
+.quiz-score {
+    display: flex;
+    gap: 50px; /* Расстояние между контейнерами */
+    position: absolute;
+    bottom: 50px;
+    
+}
+
+.container-score-person {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+
+    border-radius: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container-score-person img {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    border: 10px solid #3FE493; /* Зеленая обводка */
+}
+
+.container-score-person p {
+    margin: 10px 0;
+}
