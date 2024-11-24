@@ -1,30 +1,50 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Импортируем компонент Link
 
 const MenuPage = () => {
     const [username, setUsername] = useState("Андрю");
+    const [isHovered, setIsHovered] = useState(false);  // Состояние для наведения
 
     return (
         <div className="menu-page">
-            <div className="menu-profile-container">
-                <img
-                    className="menu-profile-img"
-                    src="assets/images/login-avatar.png"
-                    alt="Профиль"
-                />
-                <div className="menu-profile-text">
-                    <span>Хеллоу, </span>
-                    <span>{username}</span>
-                    <span>!</span>
+            <Link to="/profile" className="menu-profile-link">
+                <div
+                    className="menu-profile-container"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
+                    <img
+                        className="menu-profile-img"
+                        src="assets/images/login-avatar.png"
+                        alt="Профиль"
+                    />
+                    <div className="menu-text-container">
+                        <div className="menu-profile-text">
+                            {isHovered ? (
+                                <span>
+                                    Редактировать профиль
+                                </span>
+                            ) : (
+                                <>
+                                    <span>Хеллоу, </span>
+                                    <span>{username}</span>
+                                    <span>!</span>
+                                </>
+                            )}
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </Link>
 
-            <button className="menu-button">
+            <Link to="/create-room" className="menu-button">
                 Создать комнату
-            </button>
-            <button className="menu-button">
+            </Link>
+
+            <Link to="/join-room" className="menu-button">
                 Войти в комнату
-            </button>
-            <div className="menu-description">Игра придунана и реализована самыми гениальными людьми</div>
+            </Link>
+
+            <div className="menu-description">Игра придумана и реализована самыми гениальными людьми</div>
         </div>
     );
 };
