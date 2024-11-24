@@ -16,9 +16,9 @@ function Quiz() {
   // Данные игроков
   const [players, setPlayers] = useState([
     { name: 'Вы', score: 900, avatar: '/assets/images/profile-avatars/1.png' },
-    { name: 'Игрок 1', score: 500, avatar: '/assets/images/profile-avatars/1.png' },
-    { name: 'Игрок 2', score: 300, avatar: '/assets/images/profile-avatars/1.png' },
-    { name: 'Игрок 3', score: 400, avatar: '/assets/images/profile-avatars/1.png' }
+    { name: 'Игрок 1', score: 500, avatar: '/assets/images/profile-avatars/2.png' },
+    { name: 'Игрок 2', score: 300, avatar: '/assets/images/profile-avatars/3.png' },
+    { name: 'Игрок 3', score: 400, avatar: '/assets/images/profile-avatars/4.png' }
   ]);
 
   // Функция выбора варианта ответа

@@ -260,8 +260,6 @@ html, body{
 
 
 
-
-
 .quiz-score {
     display: flex;
     gap: 50px; /* Расстояние между контейнерами */
@@ -283,7 +281,9 @@ html, body{
     width: 100px;
     height: 100px;
     border-radius: 100px;
-    border: 10px solid #3FE493; /* Зеленая обводка */
+    color: #3786F2;
+    /* border: 10px solid #3786F2; Синяя обводка */
+    border: 10px solid #3FE493; /*Зеленая обводка*/
 }
 
 .container-score-person p {
