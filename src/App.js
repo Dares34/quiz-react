@@ -5,6 +5,8 @@ import Register from './pages/Register';
 
 import Menu from './pages/Menu';
 
+import CreateRoom from './pages/CreateRoom';
+
 import Quiz from './pages/Quiz'
 
 
@@ -16,9 +18,9 @@ function App() {
     <Routes>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
+      <Route path='/create-room' element={<CreateRoom/>}/>
       
       {/* /profile
-      /create-room
       /lobby */}
 
       <Route path='/menu' element={<Menu/>}/>

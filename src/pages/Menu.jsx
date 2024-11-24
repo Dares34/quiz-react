@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Импортируем компонент Link
+import { Link } from 'react-router-dom';
 
 const MenuPage = () => {
     const [username, setUsername] = useState("Андрю");
-    const [isHovered, setIsHovered] = useState(false);  // Состояние для наведения
-
+    const [isHovered, setIsHovered] = useState(false); 
     return (
         <div className="menu-page">
             <Link to="/profile" className="menu-profile-link">

@@ -366,7 +366,8 @@ html, body{
 
     border-radius: 100px;
     background-color: #D9D9D9;
-    color:#000;
+    color: #000;
+    
 
     margin: 25px;
 
@@ -451,4 +452,245 @@ html, body{
     font-size: 15px;
     font-family: 'Gilroy', sans-serif;
     font-weight: 600;
+}
+
+
+
+
+
+
+
+
+/*MAIN MENU PAGE*/
+
+.menu-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menu-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 920px;
+    height: 150px;
+
+    font-size: 50px;
+
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    border: solid #D9D9D9 0px;
+
+    border-radius: 100px;
+    background-color: #D9D9D9;
+    color: #000;
+    
+
+    margin: 25px;
+
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #3786F2;
+    color: white;
+    width: 1020px;
+    height: 200px;
+}
+
+.menu-profile-link{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.menu-profile-container {
+    width: 600px;
+    height: 120px;
+
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    position: absolute;
+    top: 50px;
+    border-radius: 60px;
+    background-color: #D9D9D9;
+
+    transition: all 0.3s ease;
+}
+
+.menu-profile-container:hover {
+    height: 180px;
+    top: 50px;
+    color: white;
+    background-color: #3786F2;
+}
+
+.menu-profile-img {
+    /* padding-left: 20px;  */
+    width: 90px;
+    height: 90px;
+}
+
+.menu-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; 
+}
+
+.menu-profile-text {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    font-size: 30px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    color: #000;
+    transition: all 0.3s ease;
+}
+
+.menu-profile-container:hover .menu-profile-text {
+    color: white;
+}
+
+
+.menu-profile-text span {
+    margin-right: 5px;
+}
+
+.menu-description {
+    position: absolute;
+    bottom: 50px;
+    font-size: 15px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+}
+
+
+
+/*CREATE ROOM PAGE*/
+
+.create-room-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    /* height: 100vh; */
+
+    padding: 150px;
+}
+
+.create-room-title{
+    font-size: 50px;
+
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    padding-left: 50px;
+
+}
+
+.topic-naming{
+    font-size: 50px;
+
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    padding-top: 80px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+}
+
+.topic-picker{
+    display: flex;
+    flex-direction: row;
+
+    gap: 50px;
+}
+
+.time-picker{
+    display: flex;
+    flex-direction: row;
+
+    gap: 50px;
+}
+
+.topic-name{
+    font-size: 50px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    padding: 50px;
+
+    border-radius: 50px;
+
+    background-color: #D9D9D9;
+}
+
+.topic-name:hover{
+    background-color: #eaeaea;
+
+    transition: all 0.3s ease;
+}
+
+.create-room-button{
+    position: absolute;
+    right: 150px;
+    bottom: 150px;
+
+    font-size: 50px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    padding: 50px;
+
+    border-radius: 50px;
+
+    color: white;
+    background-color: #3786F2;
+
+    transition: all 0.3s ease;
+
+    border: solid #D9D9D9 0px;
+}
+
+.create-room-button:hover{
+    background-color: #5b9fff;
+
+    border-radius: 60px;
+    padding: 60px;
+
+    right: 140px;
+    bottom: 140px;
+}
+
+.create-room-selected {
+    background-color: #1AF1AF;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.create-room-selected:hover {
+    background-color: #1AF1AF;
+}
+
+.create-room-error-message{
+    font-size: 20px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    padding-left: 50px;
+    padding-top: 80px;
+
+    color: red;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // Импортируем Link
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
