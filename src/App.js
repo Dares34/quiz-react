@@ -16,6 +16,10 @@ function App() {
     <Routes>
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
+      
+      {/* /profile
+      /create-room
+      /lobby */}
 
       <Route path='/menu' element={<Menu/>}/>
 

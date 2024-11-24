@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const MenuPage = () => {
-    const username = "Андрю"; // Имя пользователя, которое показывается сверху в профиле
+    const [username, setUsername] = useState("Андрю");
 
     return (
         <div className="menu-page">
@@ -24,6 +24,7 @@ const MenuPage = () => {
             <button className="menu-button">
                 Войти в комнату
             </button>
+            <div className="menu-description">Игра придунана и реализована самыми гениальными людьми</div>
         </div>
     );
 };

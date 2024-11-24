@@ -9,6 +9,50 @@ html, body{
 }
 
 
+@font-face {
+    font-family: 'Gilroy';
+    src: url('./assets/fonts/Gilroy-Regular.ttf') format('truetype');
+    font-weight: 400; /* Regular weight */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./assets/fonts/Gilroy-Semibold.ttf') format('truetype');
+    font-weight: 600; /* Semibold weight */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./assets/fonts/Gilroy-Medium.ttf') format('truetype');
+    font-weight: 500; /* Medium weight */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./assets/fonts/Gilroy-Light.ttf') format('truetype');
+    font-weight: 300; /* Light weight */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./assets/fonts/Gilroy-Bold.ttf') format('truetype');
+    font-weight: 700; /* Bold weight */
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Gilroy';
+    src: url('./assets/fonts/Gilroy-Thin.ttf') format('truetype');
+    font-weight: 100; /* Thin weight */
+    font-style: normal;
+  }
+  
+
+
 
 /*LOGIN, REGISTER PAGES*/
 
@@ -254,7 +298,7 @@ html, body{
 }
 
 .question-image{
-    width: 350px;
+    width: 250px;
 }
 
 
@@ -278,16 +322,16 @@ html, body{
 }
 
 .container-score-person img {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     border-radius: 100px;
     color: #3786F2;
     /* border: 10px solid #3786F2; Синяя обводка */
-    border: 10px solid #3FE493; /*Зеленая обводка*/
+    border: 7px solid #3FE493; /*Зеленая обводка*/
 }
 
 .container-score-person p {
-    margin: 10px 0;
+    margin: 10px 10px;
 }
 
 
@@ -324,6 +368,14 @@ html, body{
     background-color: #D9D9D9;
 
     margin: 25px;
+
+    transition: all 0.3s ease;
+}
+
+.menu-button:hover{
+    background-color: #3786F2;
+    color: white;
+    width: 1020px;
 }
 
 .menu-profile-container{
@@ -338,10 +390,15 @@ html, body{
     position: absolute;
     top: 50px;
 
-    border-radius: 100px;
-
+    border-radius: 60px;
 
     background-color: #D9D9D9;
+
+    transition: all 0.3s ease;
+}
+
+.menu-profile-container:hover{
+    height: 180px;
 }
 
 .menu-profile-img{
@@ -353,6 +410,16 @@ html, body{
 .menu-profile-text{
     padding-right: 50px;
     font-size: 30px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+}
+
+.menu-description{
+    position: absolute;
+    bottom: 50px;
+
+    font-size: 15px;
+
     font-family: 'Gilroy', sans-serif;
     font-weight: 600;
 }

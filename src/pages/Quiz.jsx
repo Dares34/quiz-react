@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 function Quiz() {
-  // Состояние для вопроса и ответа
+  
+  // Инпутовые данные
+
   const [questionText, setQuestionText] = useState('Какой-то вопрос?');
 
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState(1);
@@ -26,7 +28,7 @@ function Quiz() {
     setSelectedAnswer(answer);
   }
 
-  // Таймер с плавной анимацией для таймера
+  // Таймер
   useEffect(() => {
     const interval = setInterval(() => {
       setRemainingSeconds((prev) => {
@@ -34,10 +36,9 @@ function Quiz() {
           clearInterval(interval);
           return 0;
         }
-        return prev - 0.1; // Для плавности уменьшение на 0.1
+        return prev - 0.1; 
       });
-    }, 100); // Обновление каждую 0.1 секунды
-
+    }, 100);
     return () => clearInterval(interval);
   }, []);
 
