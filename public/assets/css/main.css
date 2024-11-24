@@ -125,6 +125,9 @@ html, body{
 
     padding: 20px;
 }
+.log-submit:hover {
+    background-color: #69a7fd; 
+}
 
 .error-message {
 
@@ -207,6 +210,10 @@ html, body{
     box-sizing: border-box;
 }
 
+.quiz-box:hover {
+    background-color: #f6f6f6;
+}
+
 .quiz-box .circle {
     width: 50px;
     height: 50px;
@@ -281,4 +288,71 @@ html, body{
 
 .container-score-person p {
     margin: 10px 0;
+}
+
+
+
+
+
+
+/*MAIN MENU PAGE*/
+
+.menu-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.menu-button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 920px;
+    height: 150px;
+
+    font-size: 50px;
+
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    border: solid #D9D9D9 0px;
+
+    border-radius: 100px;
+    background-color: #D9D9D9;
+
+    margin: 25px;
+}
+
+.menu-profile-container{
+    height: 120px;
+    padding: 0 20px;
+    /* padding: 0 50px; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 50px;
+
+    border-radius: 100px;
+
+
+    background-color: #D9D9D9;
+}
+
+.menu-profile-img{
+    padding-right: 70px;
+    width: 90px;
+    height: 90px;
+}
+
+.menu-profile-text{
+    padding-right: 50px;
+    font-size: 30px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
 }
