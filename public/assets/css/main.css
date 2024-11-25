@@ -694,3 +694,198 @@ html, body{
 
     color: red;
 }
+
+
+
+
+
+/*LOBBY PAGE*/
+
+.lobby-page{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.lobby-title{
+    position: absolute;
+    top: 5%;
+
+    font-size: 35px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+}
+
+.lobby-back-to-menu{
+    position: absolute;
+    top: 5%;
+    left: 3%;
+
+    font-size: 35px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    color: black;
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    transition: all 0.3s ease;
+
+}
+
+.lobby-back-to-menu:hover{
+    
+    gap: 50px;
+    color: black;
+}
+
+.lobby-back-to-menu img{
+
+    transition: all 0.3s ease;
+    filter: invert(1);
+}
+
+.lobby-back-to-menu:hover img{
+    filter: invert(0);
+    
+}
+
+
+
+
+.lobby-counter-container{
+    position: absolute;
+    top: 10%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 180px;
+    height: 100px;
+
+    background-color: #1AF1AF;
+
+    font-size: 35px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+    color: white;
+
+    border-radius: 50px;
+}
+
+
+
+.lobby-players{
+    position: absolute;
+    top: 25%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.lobby-player-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    padding: 50px;
+
+}
+
+.lobby-player-image{
+    width: 250px;
+    height: 250px;
+
+    border-radius: 250px;
+
+    border: solid 15px #c6deff;
+
+}
+
+.lobby-player-text{
+    font-size: 35px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    padding-top: 30px;
+}
+
+.lobby-code{
+    width: 300px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    bottom: 21%;
+
+    font-size: 50px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    border: solid 10px #eff6ff;
+
+    border-radius: 80px;
+    background-color: #f5f9ff;
+
+    /* color: #3786F2; */
+
+    transition: all 0.3s ease;
+
+    gap: 30px;
+}
+
+.lobby-code img{
+    transition: all 0.3s ease;
+}
+
+.lobby-code:hover{
+    background-color: #3786F2;
+    border: solid 10px #6daaff;
+    color: white;
+}
+
+.lobby-code:hover img{
+    filter: invert(1);
+}
+
+
+.lobby-start-button{
+    position: absolute;
+    bottom: 5%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 600px;
+    height: 150px;
+
+    font-size: 50px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    color: white;
+    background-color: #1AF1AF;
+    border-radius: 50px;
+    
+
+}
+
+.lobby-start-button:hover{
+    background-color: #35fbc0;
+}
