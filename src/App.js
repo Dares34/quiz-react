@@ -18,19 +18,19 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-      <Route path='/login' element={<Login/>}/>
-      <Route path='/register' element={<Register/>}/>
+      <Route path='/login/' element={<Login/>}/>
+      <Route path='/register/' element={<Register/>}/>
 
-      <Route path='/create-room' element={<CreateRoom/>}/>
-      <Route path='/lobby' element={<Lobby/>}/>
-      <Route path='/join-room' element={<JoinRoom/>}/>
+      <Route path='/create-room/' element={<CreateRoom/>}/>
+      <Route path='/lobby/' element={<Lobby/>}/>
+      <Route path='/join-room/' element={<JoinRoom/>}/>
       
       {/* /profile
       /lobby */}
 
-      <Route path='/menu' element={<Menu/>}/>
+      <Route path='/menu/' element={<Menu/>}/>
 
-      <Route path='/quiz' element={<Quiz/>}/>
+      <Route path='/quiz/' element={<Quiz/>}/>
     </Routes> 
     </BrowserRouter>
   )
