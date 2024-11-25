@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Lobby = () => {
-  // Функция для копирования текста в буфер обмена
-  const handleCopyCode = () => {
-    const code = "N4SX3"; // Код лобби
-    navigator.clipboard.writeText(code).then(() => {
+  const [code] = useState("N4SX3");
 
+  // Состояние для игроков с именами и аватарками
+  const [players, setPlayers] = useState([
+    { name: 'Андрю (Вы)', avatar: 'assets/images/profile-avatars/1.png' },
+    { name: 'Игрок 2', avatar: 'assets/images/profile-avatars/2.png' },
+    { name: 'Игрок 3', avatar: 'assets/images/profile-avatars/3.png' },
+    { name: '', avatar: '' }
+  ]);
+
+  // Подсчитываем количество игроков, у которых есть имя
+  const activePlayersCount = players.filter(player => player.name).length;
+
+  const handleCopyCode = () => {
+    navigator.clipboard.writeText(code).then(() => {
+      console.log("Код скопирован в буфер обмена");
     });
   };
 
@@ -17,47 +28,35 @@ const Lobby = () => {
       </div>
 
       <Link to="/menu" className="lobby-back-to-menu">
-            <img src="/assets/icons/back-arrow.svg" alt="" />
-            
-            <div>Вернуться в меню</div>
+        <img src="/assets/icons/back-arrow.svg" alt="" />
+        <div>Вернуться в меню</div>
       </Link>
 
       <div className="lobby-counter-container">
-        4/4
+        {activePlayersCount}/4
       </div>
 
       <div className="lobby-players">
-        <div className="lobby-player-item">
-          <img className="lobby-player-image" src="assets/images/profile-avatars/1.png" alt="" />
-          <div className="lobby-player-text">
-            Андрю (Вы)
+        {players.map((player, index) => (
+          <div key={index} className="lobby-player-item">
+            {player.avatar ? (
+              <img 
+                className="lobby-player-image" 
+                src={player.avatar} 
+                alt={player.name} 
+              />
+            ) : (
+              <div className="lobby-player-image"></div>
+            )}
+            <div className="lobby-player-text">
+              {player.name || 'Ожидание'}
+            </div>
           </div>
-        </div>
-
-        <div className="lobby-player-item">
-          <img className="lobby-player-image" src="assets/images/profile-avatars/2.png" alt="" />
-          <div className="lobby-player-text">
-            Игрок 2
-          </div>
-        </div>
-
-        <div className="lobby-player-item">
-          <img className="lobby-player-image" src="assets/images/profile-avatars/3.png" alt="" />
-          <div className="lobby-player-text">
-            Игрок 3
-          </div>
-        </div>
-
-        <div className="lobby-player-item">
-          <img className="lobby-player-image" src="assets/images/profile-avatars/4.png" alt="" />
-          <div className="lobby-player-text">
-            Игрок 4
-          </div>
-        </div>
+        ))}
       </div>
 
       <div className="lobby-code" onClick={handleCopyCode}>
-        <div>N4SX3</div>
+        <div>{code}</div>
         <img src="assets/icons/copy.svg" alt="" />
       </div>
 
