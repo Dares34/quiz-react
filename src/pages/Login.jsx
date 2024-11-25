@@ -1,11 +1,44 @@
+/* eslint-disable eqeqeq */
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const [login, setLogin] = useState(''); // Состояние для логина
+    const [password, setPassword] = useState(''); // Состояние для пароля
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible((prev) => !prev);
+    };
+
+    // Обработчик отправки формы
+    const handleLogin = async () => {
+        if (!login || !password) {
+            alert('Введите логин и пароль!');
+            return;
+        }
+
+        try {
+            const response = await fetch(`http://127.0.0.1:8000/api/leaderboard/get_user/?email=${login}&password=${password}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            console.log(response)
+            if (response.status == 403) {
+                alert('Неверный пароль или логин.');
+            }
+            
+            if (!response.ok) {
+                throw new Error(`Ошибка: ${response.status}`);
+            }
+            const data = await response.json();
+            navigate('/menu');
+        } catch (error) {
+            console.error('Ошибка входа:', error.message);
+        }
     };
 
     return (
@@ -28,6 +61,8 @@ const Login = () => {
                             placeholder="Ваш логин"
                             type="text"
                             id="login"
+                            value={login} // Привязка к состоянию
+                            onChange={(e) => setLogin(e.target.value)} // Обновляем состояние
                         />
 
                         <label htmlFor="password" className="text-14-black">
@@ -39,6 +74,8 @@ const Login = () => {
                                 placeholder="Ваш пароль"
                                 type={passwordVisible ? 'text' : 'password'}
                                 id="password"
+                                value={password} // Привязка к состоянию
+                                onChange={(e) => setPassword(e.target.value)} // Обновляем состояние
                             />
                             <span
                                 className="toggle-password"
@@ -58,8 +95,10 @@ const Login = () => {
                         </div>
                     </div>
 
-                    {/* КНОПКА ВХОДА "ФЕЙЕРИЧЕСКАЯ" */}
-                    <button className="log-submit">Фейерический вход</button>  
+                    {/* КНОПКА ВХОДА */}
+                    <button className="log-submit" onClick={handleLogin}>
+                        Фейерический вход
+                    </button>  
 
                     <p
                         style={{
