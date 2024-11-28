@@ -5,11 +5,15 @@ import Register from './pages/Register';
 
 import Menu from './pages/Menu';
 
+import Profile from './pages/Profile';
+
 import CreateRoom from './pages/CreateRoom';
 import JoinRoom from './pages/JoinRoom'
 import Lobby from './pages/Lobby';
 
 import Quiz from './pages/Quiz'
+
+import Winner from './pages/Winner'
 
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
@@ -30,7 +34,11 @@ function App() {
 
       <Route path='/menu/' element={<Menu/>}/>
 
+      <Route path='/profile/' element={<Profile/>}/>
+
       <Route path='/quiz/' element={<Quiz/>}/>
+
+      <Route path='/winner/' element={<Winner/>}/>
     </Routes> 
     </BrowserRouter>
   )

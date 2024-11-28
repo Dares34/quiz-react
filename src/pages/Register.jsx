@@ -64,6 +64,21 @@ const Register = () => {
                         style={{ width: '200px', height: '200px' }}
                     />
                     <div className="log-form-elements">
+
+
+                        <label htmlFor="login" className="text-14-black">
+                            Никнейм
+                        </label>
+                        <input
+                            className="log-input"
+                            placeholder="Ваш никнейм"
+                            type="text"
+                            id="login"
+                            value={formData.login}
+                            onChange={handleInputChange}
+                        />
+
+
                         <label htmlFor="email" className="text-14-black">
                             Email
                         </label>
@@ -79,17 +94,7 @@ const Register = () => {
                             <div className="error-message">{errors.email}</div>
                         )}
 
-                        <label htmlFor="login" className="text-14-black">
-                            Логин
-                        </label>
-                        <input
-                            className="log-input"
-                            placeholder="Ваш логин"
-                            type="text"
-                            id="login"
-                            value={formData.login}
-                            onChange={handleInputChange}
-                        />
+                        
 
                         <label htmlFor="password" className="text-14-black">
                             Пароль

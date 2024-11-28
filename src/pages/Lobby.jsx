@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 const Lobby = () => {
   const [code] = useState("N4SX3");
 
-  // Состояние для игроков с именами и аватарками
   const [players, setPlayers] = useState([
     { name: 'Андрю (Вы)', avatar: 'assets/images/profile-avatars/1.png' },
     { name: 'Игрок 2', avatar: 'assets/images/profile-avatars/2.png' },
@@ -12,7 +11,8 @@ const Lobby = () => {
     { name: '', avatar: '' }
   ]);
 
-  // Подсчитываем количество игроков, у которых есть имя
+  
+
   const activePlayersCount = players.filter(player => player.name).length;
 
   const handleCopyCode = () => {

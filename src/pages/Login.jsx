@@ -21,11 +21,11 @@ const Login = () => {
 
                     <div className="log-form-elements">
                         <label htmlFor="login" className="text-14-black">
-                            Логин
+                            Почта
                         </label>
                         <input
                             className="log-input"
-                            placeholder="Ваш логин"
+                            placeholder="Ваша почта"
                             type="text"
                             id="login"
                         />

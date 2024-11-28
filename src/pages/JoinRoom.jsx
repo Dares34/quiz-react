@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const JoinRoom = () => {
     const [roomCode, setRoomCode] = useState(''); // Переменная для кода комнаты
@@ -37,6 +38,12 @@ const JoinRoom = () => {
             <button className="join-button" onClick={handleJoinClick}>
                 Войти
             </button>
+
+
+            <Link to="/menu" className="lobby-back-to-menu">
+                <img src="/assets/icons/back-arrow.svg" alt="" />
+                <div>Вернуться в меню</div>
+            </Link>
         </div>
     );
 };

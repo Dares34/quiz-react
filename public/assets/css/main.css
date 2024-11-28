@@ -416,6 +416,7 @@ html, body{
     /* padding-left: 20px;  */
     width: 90px;
     height: 90px;
+    border-radius: 500px;
 }
 
 .menu-text-container {
@@ -592,6 +593,7 @@ html, body{
     /* height: 100vh; */
 
     padding: 150px;
+    padding-top: 200px;
 }
 
 .create-room-title{
@@ -807,7 +809,9 @@ html, body{
 
 
 
+
 /*LOBBY PAGE*/
+
 
 .lobby-page{
     display: flex;
@@ -999,5 +1003,229 @@ html, body{
 .lobby-start-button:hover{
     background-color: #35fbc0;
 }
+
+
+
+
+
+
+/*PROFILE PAGE*/
+
+.profile-page{
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-rect-banner{
+    width: 800px;
+    height: 150px;
+    border-radius: 80px;
+
+    position: absolute;
+    top: 20%;
+
+    background-color: #3786F2;
+
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.3s ease;
+
+}
+
+.profile-rect-banner img{
+    width: 200px;
+    height: 200px;
+
+    position: relative;
+    top: 50%;
+
+    border-radius: 50%;
+    border: solid white 15px;
+
+    transition: all 0.3s ease;
+}
+
+.profile-rect-banner img:hover{
+    width: 220px;
+    height: 220px;
+
+    position: relative;
+    top: 50%;
+
+    border-radius: 50%;
+    border: solid white 15px;
+}
+.profile-rect-banner:hover{
+    width: 820px;
+}
+
+
+.profile-username-text{
+    font-size: 35px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 700;
+
+    padding: 10px;
+}
+
+.profile-email-text{
+    font-size: 25px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    color: #8F8F8F;
+
+    padding: 2px;
+}
+
+.profile-delete-container{
+    position: absolute;
+    bottom: 20%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.profile-date-creation-text{
+    font-size: 25px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    color: #8F8F8F;
+}
+
+.profile-delete-button{
+    background-color: #FF3D40;
+
+    color: white;
+    font-size: 35px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    border: solid white 0px;
+
+    width: 500px;
+    height: 80px;
+    border-radius: 50px;
+
+    transition: all 0.5s ease;
+}
+
+.profile-delete-button:hover{
+    width: 800px;
+    height: 120px;
+
+    font-size: 50px;
+
+    border-radius: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*WINNER PAGE*/
+
+
+
+
+.winner-page{
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+.winner-container{
+    display: flex;
+    gap: 150px;
+}
+
+.winner-item-container-1{transform: scale(1.4) translateY(-200px);}
+
+
+.winner-item-container{
+    padding-top: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    gap: 50px;
+
+}
+
+.winner-text-frame{
+    /* background-color: #3786F2; */
+    padding: 10px 50px;
+
+    color: white;
+    font-size: 35px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+
+    border-radius: 50px;
+
+}
+
+.winner-4-item{
+
+    transform: scale(0.6);
+
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+.winner-4-item img{
+    width: 200px;
+}
+
+.winner-4-item div{
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.winner-4-item:hover div{
+    opacity: 100;
+    transform: scale(1.4) translateY(-50px);
+}
+
+
+.winner-text-frame-1{background-color: #ffaa32;}
+
+.winner-text-frame-2{background-color: #36a1ff;}
+
+.winner-text-frame-3{background-color: #f9639d;}
+
+.winner-text-frame-4{background-color: #C99A8C;}
 
 

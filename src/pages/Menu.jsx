@@ -14,14 +14,14 @@ const MenuPage = () => {
                 >
                     <img
                         className="menu-profile-img"
-                        src="assets/images/login-avatar.png"
+                        src="assets/images/profile-avatars/2.png"
                         alt="Профиль"
                     />
                     <div className="menu-text-container">
                         <div className="menu-profile-text">
                             {isHovered ? (
                                 <span>
-                                    Редактировать профиль
+                                    Перейти в профиль
                                 </span>
                             ) : (
                                 <>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const CreateRoom = () => {
     const [selectedTopic, setSelectedTopic] = useState(null);
@@ -55,6 +56,11 @@ const CreateRoom = () => {
             <button className="create-room-button" onClick={handleNext}>
                 Далее
             </button>
+
+            <Link to="/menu" className="lobby-back-to-menu">
+                <img src="/assets/icons/back-arrow.svg" alt="" />
+                <div>Вернуться в меню</div>
+            </Link>
         </div>
     );
 };
