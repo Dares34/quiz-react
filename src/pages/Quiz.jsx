@@ -1,46 +1,72 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams, useLocation } from 'react-router-dom'; // Для перехода на другие страницы
 
 function Quiz() {
-  
+  const location = useLocation();
+  const topic = location.state?.topic;
+  const timeString = location.state?.time;
+
+  const time = parseInt(timeString, 10);
+
+  const navigate = useNavigate(); // Хук для навигации
+  const { lobbyCode } = useParams(); 
+
   // Инпутовые данные
-
   const [questionText, setQuestionText] = useState('Какой-то вопрос?');
-
+  
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState(1);
-  const [totalQuestions, setTotalQuestions] = useState(5);
+  const [totalQuestions, setTotalQuestions] = useState(3);
 
-  const [remainingSeconds, setRemainingSeconds] = useState(10);
-  const [totalSeconds, setTotalSeconds] = useState(10);
+  const [remainingSeconds, setRemainingSeconds] = useState(time); //кол-во секунд оставшееся
+  const [totalSeconds, setTotalSeconds] = useState(time); //кол-во секунд
 
   const [answers, setAnswers] = useState(['Ответ A', 'Ответ B', 'Ответ C', 'Ответ D']);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [correctAnswerIndex, setCorrectAnswerIndex] = useState(3); // Правильный ответ - индекс (например, 2 для "Ответ C")
+
+  const [selectedAnswer, setSelectedAnswer] = useState(null); // Выбранный ответ
+  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false); // Флаг показа правильного ответа
 
   // Данные игроков
   const [players, setPlayers] = useState([
     { name: 'Вы', score: 900, avatar: '/assets/images/profile-avatars/1.png' },
     { name: 'Игрок 1', score: 500, avatar: '/assets/images/profile-avatars/2.png' },
     { name: 'Игрок 2', score: 300, avatar: '/assets/images/profile-avatars/3.png' },
-    { name: 'Игрок 3', score: 400, avatar: '/assets/images/profile-avatars/4.png' }
+    { name: '', score: 400, avatar: '/assets/images/profile-avatars/4.png' },
   ]);
 
   // Функция выбора варианта ответа
-  function selectBox(answer) {
-    setSelectedAnswer(answer);
+  function selectBox(answerIndex) {
+    if (showCorrectAnswer) return; // Если правильный ответ уже отображен, не даем выбрать другой вариант
+    setSelectedAnswer(answerIndex);
   }
 
-  // Таймер
   useEffect(() => {
-    const interval = setInterval(() => {
-      setRemainingSeconds((prev) => {
-        if (prev <= 0) {
-          clearInterval(interval);
-          return 0;
+    if (remainingSeconds <= 0) {
+      // Когда время истекло, показываем правильный ответ
+      setShowCorrectAnswer(true);
+
+      // Через 3 секунды переходим на следующий вопрос
+      const timeout = setTimeout(() => {
+        if (currentQuestionNumber < totalQuestions) {
+          // Переход к следующему вопросу
+          setCurrentQuestionNumber((prev) => prev + 1);
+          setRemainingSeconds(totalSeconds);
+          setSelectedAnswer(null);
+          setShowCorrectAnswer(false); // Скрываем правильный ответ
+        } else {
+          navigate(`/winner/${lobbyCode}`); // Если вопросов больше нет
         }
-        return prev - 0.1; 
-      });
+      }, 3000);
+
+      return () => clearTimeout(timeout);
+    }
+
+    const interval = setInterval(() => {
+      setRemainingSeconds((prev) => Math.max(prev - 0.1, 0));
     }, 100);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [remainingSeconds, currentQuestionNumber, totalQuestions, totalSeconds, navigate]);
 
   return (
     <div className="quiz-page">
@@ -172,8 +198,16 @@ function Quiz() {
           {answers.map((answer, index) => (
             <div
               key={index}
-              className={`quiz-box ${selectedAnswer === answer ? 'active' : ''}`}
-              onClick={() => selectBox(answer)}
+              className={`quiz-box ${
+                showCorrectAnswer && index === correctAnswerIndex
+                  ? 'correct'
+                  : showCorrectAnswer && selectedAnswer === index && index !== correctAnswerIndex
+                  ? 'wrong'
+                  : selectedAnswer === index
+                  ? 'active'
+                  : ''
+              }`}
+              onClick={() => selectBox(index)} // Передаем индекс ответа
             >
               <div className="circle">{String.fromCharCode(65 + index)}</div>
               <span>{answer}</span>

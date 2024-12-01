@@ -99,11 +99,11 @@ const Register = () => {
                     />
                     <div className="log-form-elements">
                         <label htmlFor="name" className="text-14-black">
-                            Имя
+                            Никнейм
                         </label>
                         <input
                             className="log-input"
-                            placeholder="Ваше имя"
+                            placeholder="Ваш никнейм"
                             type="text"
                             id="name"
                             value={formData.name}
