@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-<<<<<<< HEAD
-import { createRoom } from '../api/api_create_room';
- 
-=======
 import { Link } from 'react-router-dom';
-
+import { createRoom } from '../api/api_create_room';
 
 
 function generateLobbyCode() {
@@ -18,9 +14,7 @@ function generateLobbyCode() {
     return code;
 }
 
-
-
->>>>>>> ae09a816acba763e2b88298ea67e0698457dde42
+ 
 const CreateRoom = () => {
     const [selectedTopic, setSelectedTopic] = useState(null);
     const [selectedTime, setSelectedTime] = useState(null);
