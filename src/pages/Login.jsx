@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+
     const [passwordVisible, setPasswordVisible] = useState(false);
 
     const togglePasswordVisibility = () => {
         setPasswordVisible((prev) => !prev);
+    };
+
+    const [isAuthenticated, setIsAuthenticated] = useState(true);
+
+    const navigate = useNavigate();
+    const handleLogin = () => {
+        
+        if (isAuthenticated) {
+            navigate('/menu');
+        } else {
+            
+        }
     };
 
     return (
@@ -59,7 +74,7 @@ const Login = () => {
                     </div>
 
                     {/* КНОПКА ВХОДА "ФЕЙЕРИЧЕСКАЯ" */}
-                    <button className="log-submit">Фейерический вход</button>  
+                    <button className="log-submit" onClick={handleLogin}>Фейерический вход</button>  
 
                     <p
                         style={{

@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Home from './pages/_Home'
+
 import Login from './pages/Login';
 import Register from './pages/Register';
 
@@ -22,23 +24,22 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
+    <Route path='/' element={<Home/>}/>
+
       <Route path='/login/' element={<Login/>}/>
       <Route path='/register/' element={<Register/>}/>
 
       <Route path='/create-room/' element={<CreateRoom/>}/>
-      <Route path='/lobby/' element={<Lobby/>}/>
+      <Route path='/lobby/:lobbyCode' element={<Lobby/>}/>
       <Route path='/join-room/' element={<JoinRoom/>}/>
-      
-      {/* /profile
-      /lobby */}
 
       <Route path='/menu/' element={<Menu/>}/>
 
       <Route path='/profile/' element={<Profile/>}/>
 
-      <Route path='/quiz/' element={<Quiz/>}/>
+      <Route path='/quiz/:lobbyCode' element={<Quiz/>}/>
 
-      <Route path='/winner/' element={<Winner/>}/>
+      <Route path='/winner/:lobbyCode' element={<Winner/>}/>
     </Routes> 
     </BrowserRouter>
   )

@@ -1,4 +1,6 @@
 html, body{
+    user-select: none;
+
     width: 100%;
     margin: 0;
     padding: 0;
@@ -168,7 +170,10 @@ html, body{
     justify-content: center;
 
     padding: 20px;
+
+    text-decoration: none;
 }
+
 .log-submit:hover {
     background-color: #69a7fd; 
 }
@@ -327,11 +332,33 @@ html, body{
     border-radius: 100px;
     color: #3786F2;
     /* border: 10px solid #3786F2; Синяя обводка */
-    border: 7px solid #3FE493; /*Зеленая обводка*/
+    border: 7px solid #3FE493; 
 }
 
 .container-score-person p {
     margin: 10px 10px;
+}
+
+.quiz-box.correct {
+    background-color: #3FE493;
+    border: 3px solid #8cffc2;
+    color: white;
+  }
+  
+  .quiz-box.wrong {
+    background-color: #ff5145; 
+    border: 3px solid #ff8a8a;
+    color: white;
+  }
+  
+
+  .quiz-box.correct .circle {
+    background-color: #fff; 
+    color: #48fe9d; 
+}
+.quiz-box.wrong .circle {
+    background-color: #fff; 
+    color: #ff5145; 
 }
 
 
@@ -576,7 +603,25 @@ html, body{
     font-family: 'Gilroy', sans-serif;
     font-weight: 600;
 }
+.menu-gif{
+    box-shadow: 
+        0 0 0 40px rgba(39, 100, 255, 0.05),  
+        0 0 0 20px rgba(39, 100, 255, 0.05);
+    transition: all 0.3s ease;
 
+    position: absolute;
+    right: 100px;
+    bottom: 100px;
+}
+
+
+.menu-gif:hover{
+    box-shadow: 
+        0 0 0 40px rgba(39, 100, 255, 0.1),  
+        0 0 0 20px rgba(39, 100, 255, 0.1);
+
+    transform: scale(1.1);
+}
 
 
 
@@ -842,7 +887,8 @@ html, body{
     font-family: 'Gilroy', sans-serif;
     font-weight: 600;
 
-    color: black;
+    /* color: black; */
+    color: #8F8F8F;
     text-decoration: none;
 
     display: flex;
@@ -996,12 +1042,22 @@ html, body{
     color: white;
     background-color: #1AF1AF;
     border-radius: 50px;
-    
 
+    user-select: none;
+    
 }
+
+.lobby-scream-button{
+    background-color: #ff4141;
+}
+
 
 .lobby-start-button:hover{
     background-color: #35fbc0;
+}
+
+.lobby-scream-button:hover{
+    background-color: #ff7575;
 }
 
 
@@ -1191,7 +1247,6 @@ html, body{
 }
 
 .winner-4-item{
-
     transform: scale(0.6);
 
     position: absolute;
@@ -1201,7 +1256,6 @@ html, body{
     display: flex;
     align-items: center;
     flex-direction: column;
-
 }
 
 
@@ -1227,5 +1281,126 @@ html, body{
 .winner-text-frame-3{background-color: #f9639d;}
 
 .winner-text-frame-4{background-color: #C99A8C;}
+
+
+
+
+
+
+
+
+
+
+
+/*HOME LANDING PAGE*/
+
+
+
+
+
+.home-page{
+    background-color: #AC88F7;
+    width: 100vw;
+    height: 230vh;
+}
+
+.home-banner{
+    width: 100%;
+}
+
+.home-start-button{
+    text-decoration: none;
+
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 500px;
+    height: 100px;
+
+    color: #AC88F7;
+    font-size: 50px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 700;
+
+    background-color: white;
+
+    border-radius: 100px;
+    border: solid white 0px;
+    
+    box-shadow: 
+    0 0 0 40px rgba(251, 245, 255, 0.2),  
+    0 0 0 60px rgba(251, 245, 255, 0.2),  
+    0 0 0 20px rgba(251, 245, 255, 0.2);
+
+    transition: all 0.3s ease;
+
+    transform: translateX(-50%)  translateY(-50%);
+}
+
+.home-start-button:hover{
+    font-size: 55px;
+    width: 600px;
+    height: 120px;
+
+}
+
+
+.home-title-text{
+    color: white;
+    font-size: 50px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 700;
+
+    display: flex;
+    justify-content: center;
+
+    padding: 20px;
+
+    padding-top: 200px;
+
+}
+
+.home-why-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-why-img{
+    transition: all 0.3s ease;
+}
+
+.home-why-img:hover{
+    transform: scale(1.1);
+}
+
+.home-faq-container{
+    padding: 40px 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.home-faq-container img{
+    transition: all 0.3s ease;
+}
+
+.home-faq-text{
+    color: white;
+    font-size: 35px;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 600;
+}
+
+.home-faq-container img:hover{
+    transform: scale(1.1);
+}
 
 

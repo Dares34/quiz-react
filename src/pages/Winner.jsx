@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Winner = () => {
-
-
+    
     return (
         <div className="winner-page">
             
@@ -22,7 +21,6 @@ const Winner = () => {
                     <img src="/assets/images/winner-frame/3.svg" alt="" />
                     <div className='winner-text-frame winner-text-frame-3'>Игрок 3</div>
                 </div>
-
             </div>
             
             <div className='winner-4-item'>
