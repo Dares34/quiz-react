@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const [formData, setFormData] = useState({
+        name: '',
         email: '',
-        login: '',
         password: '',
         confirmPassword: '',
     });
     const [errors, setErrors] = useState({});
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+    const [message, setMessage] = useState('');
+    
+    // Используем navigate для редиректа
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         const { id, value } = e.target;
@@ -29,6 +33,10 @@ const Register = () => {
         const newErrors = {};
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+        if (!formData.name) {
+            newErrors.name = 'Введите имя';
+        }
+
         if (!emailPattern.test(formData.email)) {
             newErrors.email = 'Введите корректный email';
         }
@@ -44,10 +52,36 @@ const Register = () => {
         return newErrors;
     };
 
-    const handleRegister = () => {
+    const handleRegister = async () => {
+        setMessage('');
         const newErrors = validateForm();
         if (Object.keys(newErrors).length === 0) {
-            alert('Регистрация успешна!');
+            const userPayload = {
+                name: formData.name,
+                email: formData.email,
+                password: formData.password,
+                role: 1,
+            };
+
+            try {
+                const response = await fetch('http://127.0.0.1:8000/api/leaderboard/create_user/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userPayload),
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Ошибка при регистрации');
+                }
+                const data = await response.json();
+                navigate('/menu');
+            } catch (error) {
+                console.error('Ошибка регистрации:', error.message);
+                setMessage(error.message);
+            }
         } else {
             setErrors(newErrors);
         }
@@ -64,20 +98,20 @@ const Register = () => {
                         style={{ width: '200px', height: '200px' }}
                     />
                     <div className="log-form-elements">
-
-
-                        <label htmlFor="login" className="text-14-black">
+                        <label htmlFor="name" className="text-14-black">
                             Никнейм
                         </label>
                         <input
                             className="log-input"
                             placeholder="Ваш никнейм"
                             type="text"
-                            id="login"
-                            value={formData.login}
+                            id="name"
+                            value={formData.name}
                             onChange={handleInputChange}
                         />
-
+                        {errors.name && (
+                            <div className="error-message">{errors.name}</div>
+                        )}
 
                         <label htmlFor="email" className="text-14-black">
                             Email
@@ -93,8 +127,6 @@ const Register = () => {
                         {errors.email && (
                             <div className="error-message">{errors.email}</div>
                         )}
-
-                        
 
                         <label htmlFor="password" className="text-14-black">
                             Пароль
@@ -167,6 +199,15 @@ const Register = () => {
                     >
                         Зарегистрироваться
                     </button>
+                    {message && (
+                        <p
+                            style={{
+                                color: message.includes('Ошибка') ? 'red' : 'green',
+                            }}
+                        >
+                            {message}
+                        </p>
+                    )}
                     <p
                         style={{
                             fontSize: 18,
