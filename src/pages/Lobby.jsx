@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { get_user } from '../api/api_get_user';
 
 const Lobby = () => {
   const [code] = useState("N4SX3");
+  const [username, setUsername] = useState(''); // Для имени пользователя
 
   // Состояние для игроков с именами и аватарками
   const [players, setPlayers] = useState([
@@ -20,6 +22,20 @@ const Lobby = () => {
       console.log("Код скопирован в буфер обмена");
     });
   };
+
+  // Получение никнейма через API
+  useEffect(() => {
+    const fetchUsername = async () => {
+      try {
+        const response = await apiClient.get('/api/leaderboard/get_user');
+        setUsername(response.data.name); // Сохраняем имя пользователя
+      } catch (error) {
+        console.error('Ошибка при загрузке имени пользователя:', error);
+      }
+    };
+
+    fetchUsername();
+  }, []);
 
   return (
     <div className="lobby-page">
@@ -49,7 +65,7 @@ const Lobby = () => {
               <div className="lobby-player-image"></div>
             )}
             <div className="lobby-player-text">
-              {player.name || 'Ожидание'}
+              {index === 0 && username ? username : player.name || 'Ожидание'}
             </div>
           </div>
         ))}
@@ -65,6 +81,6 @@ const Lobby = () => {
       </a>
     </div>
   );
-}
+};
 
 export default Lobby;
