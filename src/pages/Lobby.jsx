@@ -71,20 +71,6 @@ const Lobby = () => {
     }, 100);
   };
 
-  // Получение никнейма через API
-  useEffect(() => {
-    const fetchUsername = async () => {
-      try {
-        const response = await get_user();
-        setUsername(response.data.name); // Сохраняем имя пользователя
-      } catch (error) {
-        console.error('Ошибка при загрузке имени пользователя:', error);
-      }
-    };
-
-    fetchUsername();
-  }, []);
-
   return (
     <div className="lobby-page">
       <div className="lobby-title">Ожидание игроков</div>
