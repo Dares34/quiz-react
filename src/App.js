@@ -17,14 +17,23 @@ import Quiz from './pages/Quiz'
 
 import Winner from './pages/Winner'
 
-
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
+
+
+
+import Test from './pages/_Test'
+
+
 
 function App() {
   return (
+
     <BrowserRouter>
     <Routes>
     <Route path='/' element={<Home/>}/>
+
+      <Route path='/test/' element={<Test/>}/>
 
       <Route path='/login/' element={<Login/>}/>
       <Route path='/register/' element={<Register/>}/>

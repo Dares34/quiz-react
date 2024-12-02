@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import Howler from 'react-howler';
 
 const MenuPage = () => {
-    const [username, setUsername] = useState("Андрю");    
+    const [username, setUsername] = useState("Андрю");
+    
+    
     const [isHovered, setIsHovered] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
 

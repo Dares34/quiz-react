@@ -7,6 +7,7 @@ const Profile = () => {
     const [email, setEmail] = useState('');
     const [createdAt, setCreatedAt] = useState('');
 
+
     const formatIsoDateToRussian = (isoDate) => {
         const date = new Date(isoDate);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };

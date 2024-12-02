@@ -1047,6 +1047,11 @@ html, body{
     
 }
 
+.lobby-start-button-disabled{
+    background-color: #f11a45;
+}
+
+
 .lobby-scream-button{
     background-color: #ff4141;
 }
@@ -1056,8 +1061,12 @@ html, body{
     background-color: #35fbc0;
 }
 
+.lobby-start-button-disabled:hover{
+    background-color: #ff5f7f;
+}
+
 .lobby-scream-button:hover{
-    background-color: #ff7575;
+    background-color: #ff5c5c;
 }
 
 
@@ -1301,7 +1310,7 @@ html, body{
 .home-page{
     background-color: #AC88F7;
     width: 100vw;
-    height: 230vh;
+    height: 250vh;
 }
 
 .home-banner{
