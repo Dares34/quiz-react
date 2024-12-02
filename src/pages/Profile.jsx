@@ -22,7 +22,7 @@ const Profile = () => {
                 console.log('Ответ от API:', response); // Логирование всего ответа
                 setUsername(response.name || 'Имя не указано');
                 setEmail(response.email || 'Email не указан');
-                setCreatedAt(response.createdAt || 'Дата не указана');
+                setCreatedAt(response.data_joined || 'Дата не указана');
             } catch (error) {
                 console.error('Ошибка при получении данных пользователя:', error);
             }

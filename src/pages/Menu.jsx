@@ -1,13 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Howler from 'react-howler';
+import { get_user } from '../api/api_get_user';
 
 const MenuPage = () => {
-    const [username, setUsername] = useState("Андрю");
-    
-    
+    const [username, setUsername] = useState('');
     const [isHovered, setIsHovered] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
+
+    // Запрос к API для получения данных пользователя
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await get_user('qwe123qwe123@mail.ru', 'qwe123qwe123');
+                console.log('Ответ от API:', response); // Логирование всего ответа
+                setUsername(response.name || 'Имя не указано');
+
+            } catch (error) {
+                console.error('Ошибка при получении данных пользователя:', error);
+            }
+        };
+
+        fetchUser();
+    }, []);
 
     return (
         <div className="menu-page">
