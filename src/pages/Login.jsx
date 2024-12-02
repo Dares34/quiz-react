@@ -20,7 +20,7 @@ const Login = () => {
         }
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/users/get-user/?email=${login}&password=${password}`, {
+            const response = await fetch(`http://127.0.0.1/api/users/get-user/?email=${login}&password=${password}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
