@@ -1,16 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { get_user } from '../api/api_get_user';
 
 const Profile = () => {
-    const [username, setUsername] = useState("Андрю");
-    const [email, setEmail] = useState("andrey@bananov.ru");
-    const [createdAt, setCreatedAt] = useState("2023-11-16T12:34:56.789Z");
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [createdAt, setCreatedAt] = useState('');
+
 
     const formatIsoDateToRussian = (isoDate) => {
         const date = new Date(isoDate);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         return date.toLocaleDateString('ru-RU', options);
     };
+
+    // Запрос к API для получения данных пользователя
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await get_user('qwe123qwe123@mail.ru', 'qwe123qwe123');
+                console.log('Ответ от API:', response); // Логирование всего ответа
+                setUsername(response.name || 'Имя не указано');
+                setEmail(response.email || 'Email не указан');
+                setCreatedAt(response.createdAt || 'Дата не указана');
+            } catch (error) {
+                console.error('Ошибка при получении данных пользователя:', error);
+            }
+        };
+
+        fetchUser();
+    }, []);
 
     return (
         <div className="profile-page">

@@ -4,7 +4,7 @@ import Howler from 'react-howler';
 
 const MenuPage = () => {
     const [username, setUsername] = useState("Андрю");
-
+    
     
     const [isHovered, setIsHovered] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);

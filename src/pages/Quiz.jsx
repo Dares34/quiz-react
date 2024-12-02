@@ -6,6 +6,9 @@ function Quiz() {
   const topic = location.state?.topic;
   const timeString = location.state?.time;
 
+  const playersFromLobby = location.state?.players || [];
+  const [players, setPlayers] = useState(playersFromLobby);
+
   const time = parseInt(timeString, 10);
 
   const navigate = useNavigate(); // Хук для навигации
@@ -27,12 +30,12 @@ function Quiz() {
   const [showCorrectAnswer, setShowCorrectAnswer] = useState(false); // Флаг показа правильного ответа
 
   // Данные игроков
-  const [players, setPlayers] = useState([
-    { name: 'Вы', score: 900, avatar: '/assets/images/profile-avatars/1.png' },
-    { name: 'Игрок 1', score: 500, avatar: '/assets/images/profile-avatars/2.png' },
-    { name: 'Игрок 2', score: 300, avatar: '/assets/images/profile-avatars/3.png' },
-    { name: '', score: 400, avatar: '/assets/images/profile-avatars/4.png' },
-  ]);
+  // const [players, setPlayers] = useState([
+  //   { name: 'Вы', score: 900, avatar: '/assets/images/profile-avatars/1.png' },
+  //   { name: 'Игрок 1', score: 500, avatar: '/assets/images/profile-avatars/2.png' },
+  //   { name: 'Бомбиникс', score: 300, avatar: '/assets/images/profile-avatars/3.png' },
+  //   { name: '', score: 400, avatar: '/assets/images/profile-avatars/4.png' },
+  // ]);
 
   // Функция выбора варианта ответа
   function selectBox(answerIndex) {
@@ -218,14 +221,22 @@ function Quiz() {
 
       {/* Общее отображение очков игроков */}
       <div className="quiz-score">
-        {players.map((player, index) => (
-          <div key={index} className="container-score-person">
-            <p>{player.score} янтариков</p>
-            <img src={player.avatar} alt={player.name} />
-            <p>{player.name}</p>
-          </div>
-        ))}
+        {players
+          .filter(player => player.name)
+          .map((player, index) => (
+            <div key={index} className="container-score-person">
+              <p>{player.score} янтариков</p>
+              {player.avatar ? (
+                <img src={player.avatar} alt={player.name} />
+              ) : (
+                <div className="placeholder-avatar"></div>
+              )}
+              <p>{player.name}</p>
+            </div>
+          ))}
       </div>
+
+
     </div>
   );
 }
