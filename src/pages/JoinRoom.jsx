@@ -14,7 +14,6 @@ const JoinRoom = () => {
             setErrorMessage('');
             console.log(`Код комнаты: ${roomCode}`);
 
-            
             navigate(`/lobby/${roomCode}`, {
                 state: { 
                     isCreator: false,

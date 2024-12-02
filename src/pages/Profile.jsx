@@ -6,6 +6,7 @@ const Profile = () => {
     const [email, setEmail] = useState("andrey@bananov.ru");
     const [createdAt, setCreatedAt] = useState("2023-11-16T12:34:56.789Z");
 
+
     const formatIsoDateToRussian = (isoDate) => {
         const date = new Date(isoDate);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
