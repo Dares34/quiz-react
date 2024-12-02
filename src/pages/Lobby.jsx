@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Howler from 'react-howler';
-
 import { Link, useParams, useNavigate, useLocation } from 'react-router-dom';
 import { get_user } from '../api/api_get_user';
 
@@ -48,7 +47,7 @@ const Lobby = () => {
   useEffect(() => {
     const fetchUsername = async () => {
       try {
-        const response = await apiClient.get('/api/leaderboard/get_user');
+        const response = await get_user();
         setUsername(response.data.name); // Сохраняем имя пользователя
       } catch (error) {
         console.error('Ошибка при загрузке имени пользователя:', error);
