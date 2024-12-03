@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://185.128.105.41/api/'; 
+const API_BASE_URL = 'http://185.128.105.41/api/';
 
 export const createUser = async (userData) => {
     try {
-      const response = await axios.post(`${BASE_URL}leaderboard/create-user/`, userData);
+      const response = await axios.post(`${API_BASE_URL}users/create-user/`, userData);
       return response.data; 
     } catch (error) {
       if (error.response) {

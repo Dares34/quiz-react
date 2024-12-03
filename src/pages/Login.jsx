@@ -1,6 +1,7 @@
 /* eslint-disable eqeqeq */
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { get_user } from '../api/api_get_user';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -18,29 +19,29 @@ const Login = () => {
             alert('Введите логин и пароль!');
             return;
         }
-
+    
         try {
-            const response = await fetch(`http://127.0.0.1:8000/api/leaderboard/get_user/?email=${login}&password=${password}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            console.log(response)
-            if (response.status == 403) {
-                alert('Неверный пароль или логин.');
+            const response = await get_user(login, password);
+    
+            if (!response) {
+                alert('Ошибка входа. Проверьте свои данные.');
+                return;
             }
-            
-            if (!response.ok) {
-                throw new Error(`Ошибка: ${response.status}`);
+    
+            console.log('Ответ от API:', response);
+    
+            // Пример обработки ответа
+            if (response.email === login) {
+                navigate('/menu');
+            } else {
+                alert('Неверный логин или пароль.');
             }
-            const data = await response.json();
-            navigate('/menu');
         } catch (error) {
             console.error('Ошибка входа:', error.message);
+            alert('Ошибка на сервере. Попробуйте позже.');
         }
     };
-
+    
     return (
         <div className="login-container">
             <div className="log-left-container">

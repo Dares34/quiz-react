@@ -18,7 +18,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const response = await get_user('qwe123qwe123@mail.ru', 'qwe123qwe123');
+                const response = await get_user();
                 console.log('Ответ от API:', response); // Логирование всего ответа
                 setUsername(response.name || 'Имя не указано');
                 setEmail(response.email || 'Email не указан');

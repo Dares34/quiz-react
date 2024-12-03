@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { createUser } from '../api/api_create_user';
 
 const Register = () => {
     const [formData, setFormData] = useState({
@@ -12,8 +13,6 @@ const Register = () => {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
     const [message, setMessage] = useState('');
-    
-    // Используем navigate для редиректа
     const navigate = useNavigate();
 
     const handleInputChange = (e) => {
@@ -60,27 +59,17 @@ const Register = () => {
                 name: formData.name,
                 email: formData.email,
                 password: formData.password,
-                role: 1,
+                is_staff: false, // Указываем, что пользователь не администратор
             };
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/leaderboard/create_user/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(userPayload),
-                });
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.message || 'Ошибка при регистрации');
-                }
-                const data = await response.json();
-                navigate('/menu');
+                const response = await createUser(userPayload); // Используем createUser
+                console.log('Ответ от API:', response);
+                setMessage('Регистрация успешна! Перенаправление...');
+                navigate('/menu'); // Редирект на меню после успешной регистрации
             } catch (error) {
-                console.error('Ошибка регистрации:', error.message);
-                setMessage(error.message);
+                console.error('Ошибка регистрации:', error);
+                setMessage(error.error || 'Произошла ошибка при регистрации');
             }
         } else {
             setErrors(newErrors);
