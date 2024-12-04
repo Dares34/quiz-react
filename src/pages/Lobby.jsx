@@ -57,11 +57,8 @@ const Lobby = () => {
     });
   };
 
-  const handleStartGame = () => {
-    navigate(`/quiz/${lobbyCode}`, {
-      state: { topic, time, players: players.filter(player => player.name) }
-    });
-  };
+  
+  
 
   const [playSound, setPlaySound] = useState(false);
   const handlePlaySound = () => {
@@ -70,6 +67,42 @@ const Lobby = () => {
       setPlaySound(true);
     }, 100);
   };
+
+
+
+  
+
+  const handleStartGame = () => {
+    // Отправляем данные о начале игры на сервер
+    socket.emit("startGame", {
+      lobbyCode,
+      topic,
+      time,
+      players: players.filter(player => player.name), // Только активные игроки
+    });
+  
+    // Перенаправление создателя на страницу игры
+    navigate(`/quiz/${lobbyCode}`, {
+      state: { topic, time, players: players.filter(player => player.name) },
+    });
+  };
+
+
+
+  useEffect(() => {
+    // Слушаем событие старта игры
+    socket.on("gameStarted", ({ lobbyCode, topic, time, players }) => {
+      console.log("Game started, redirecting to quiz page...");
+      navigate(`/quiz/${lobbyCode}`, {
+        state: { topic, time, players },
+      });
+    });
+  
+    return () => {
+      socket.off("gameStarted"); // Очищаем слушатель при размонтировании
+    };
+  }, [navigate]);
+  
 
   return (
     <div className="lobby-page">

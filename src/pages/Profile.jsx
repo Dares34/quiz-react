@@ -7,6 +7,14 @@ const Profile = () => {
     const [createdAt, setCreatedAt] = useState("2023-11-16T12:34:56.789Z");
 
 
+
+    {/* ДОБАВЛЕНА ПЕРЕМЕННАЯ ПОБЕД */}
+    const [victories, setVictories] = useState(0);
+    {/* ДОБАВЛЕНА ПЕРЕМЕННАЯ ПОБЕД */}
+
+    
+
+
     const formatIsoDateToRussian = (isoDate) => {
         const date = new Date(isoDate);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -21,6 +29,14 @@ const Profile = () => {
 
             <div className="profile-username-text">{username}</div>
             <div className="profile-email-text">{email}</div>
+
+
+
+            {/* ДОБАВЛЕНА СТРОЧКА ПОБЕД */}
+            <div className="profile-victories-text">Побед: {victories}</div>
+            {/* ДОБАВЛЕНА СТРОЧКА ПОБЕД */}
+
+
 
             <div className="profile-delete-container">
                 <div className="profile-date-creation-text">

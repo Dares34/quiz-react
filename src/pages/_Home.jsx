@@ -32,7 +32,7 @@ const Home = () => {
                 <img className='home-why-img' src="/assets/images/home-page/why-3.png" alt="" />
             </div>
 
-            <div className='home-title-text'>FAQ (ФАК) - часто задаваемые вопросы</div>
+            <div className='home-title-text'>FAQ - часто задаваемые вопросы</div>
 
             <div className='home-faq-container'>
                 <div className='home-faq-text'>
